@@ -4,6 +4,8 @@
 # Python Environment
 .python-version
 .venv
+venv
+.idea
 
 
 # General ignores for macOS
