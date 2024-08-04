@@ -5,6 +5,10 @@ Example Experimentalist
 import numpy as np
 import pandas as pd
 
+"""
+candidate_points are all points in the conditions space that could potentially be proposed.
+It is a result of resampling the entirety of condition space. Must be reinitialized before each experiment.
+"""
 candidate_points = None
 
 
@@ -35,7 +39,8 @@ def resample_condition_space(condition_space, values_per_dim):
 def max_distance_sampler(data, condition_space, n_samples, values_per_dim=10):
     """
     Picks the next set of experimental conditions by maximizing the
-    distance to all previously recorded conditions.
+    distance to all previously recorded conditions. Default distance measure
+    is Euclidean.
 
     Args:
         data (DataFrame):             Experimental Data gathered so far
@@ -55,15 +60,16 @@ def max_distance_sampler(data, condition_space, n_samples, values_per_dim=10):
     >> 'var2': [2, 4, 6],
     >> })
     >> condition_space = pd.DataFrame({
-         'var1': np.linspace(0, 10, 100),
-         'var2': np.linspace(0, 10, 100)
-         })
+        'var1': np.linspace(0, 10, 100),
+        'var2': np.linspace(0, 10, 100)
+        })
     >> n_samples = 5
     >> values_per_dim = 10
     >> new_conditions = max_distance_sampler(data, condition_space, n_samples, values_per_dim)
     >> print(new_conditions)
     """
     # Class level variable, since autora_experimentalists do not seem to be instance based
+    # TODO: Discuss use case and change in the future.
     global candidate_points
 
     # Define previous conditions based on the recorded values of independent
