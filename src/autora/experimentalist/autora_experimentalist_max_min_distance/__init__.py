@@ -1,5 +1,11 @@
 """
-Example Experimentalist
+This is the implementation of a max min-distance sampler.
+It chooses the next sample based on the maximal minimal difference to a comparison set of points.
+If outperforms random sampling for low sampling steps on synthetic experimental data.
+It is a custom implementation of the "novelty" approach from autorRA's novelty experimentalist.
+Unlike autoRA's novelty experimentalist, this one only offers the calculation of the Euclidean distance and always
+utilizes the maximal _min_ distance to choose the next point.
+Furthermore, dynamic resampling of the condition space to improve performance is provided.
 """
 
 import numpy as np
