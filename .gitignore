@@ -69,3 +69,7 @@ docs/reference/
 
 # Jupyter Notebook load data
 .ipynb_checkpoints
+
+# Local Snippets and Notes
+/src/autora/experimentalist/autora_experimentalist_tutors/snippets.md
+/src/autora/experimentalist/autora_experimentalist_max_min_distance/snippets.md
