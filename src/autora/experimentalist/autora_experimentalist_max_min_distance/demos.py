@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from . import max_distance_sampler
+from . import max_min_distance_sampler
 
 
 def sampling_example_2d():
