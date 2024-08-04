@@ -48,17 +48,17 @@ def compute_optimal_blob_size(space):
     """
 
     Args:
-        space (DataFrame) : A condition space. For this use cases expected to be candidate_points
+        space (Union[ndarray,DataFrame]) : A condition space. For this use cases expected to be candidate_points
 
     Returns:
-        The optimal size for blobs centered around candiate_points to cover the entire condition space
+        The optimal size for blobs centered around candidate_points to cover the entire condition space
         without overlap
     """
 
     # Compute a range such that uniform blobs of candidate points do not overlap but all together
     # cover the entire condition_space
     range_scale = []
-    n_dims = len(space.columns)
+    n_dims = len(candidate_points.shape)
 
     for col in space.columns:
         col_range = candidate_points[col].max()-candidate_points[col].min()
@@ -193,7 +193,7 @@ def max_min_distance_sampler(data,
     if check_resampling_required(condition_space, candidate_points, values_per_dim):
         # Resample the condition space to create a dense grid of candidate points.
         candidate_points = resample_condition_space(condition_space, values_per_dim)
-        compute_optimal_blob_size()
+        compute_optimal_blob_size(candidate_points)
 
     # Identify which conditions have already been sampled before.
     previous_conditions = data[condition_space.columns].values
