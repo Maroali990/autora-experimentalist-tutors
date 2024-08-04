@@ -1,4 +1,31 @@
-# AutoRA Template
+# Usage in jupyter notebook
+
+## Install
+```
+!pip install git+https://github.com/Maroali990/autora-experimentalist-tutors.git
+```
+## Import
+```
+from autora.experimentalist.autora_experimentalist_max_min_distance import max_min_distance_sampler
+```
+
+### Sample
+```
+###Setup Experiment [pseudo code]
+exp_data = exp_runner.simulate_experiment()
+independent_variables = VariableCollection(exp_runner.variables.independent_variables)
+all_possible_conditions = grid_pool(independent_variables)
+###
+
+new_conditions = max_min_distance_sampler(data=experimental_data,
+                                          condition_space=all_possible_conditions,
+                                          n_samples = num_samples
+```
+
+
+
+
+# Based On: AutoRA Template
 
 ## Quickstart Guide
 
