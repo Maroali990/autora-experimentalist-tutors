@@ -26,7 +26,7 @@ def sampling_example_2d():
     values_per_dim = 10
 
     # Sample new Conditions
-    nc = max_distance_sampler(data, condition_space,
+    nc = max_min_distance_sampler(data, condition_space,
                               n_samples, values_per_dim)
 
     # Plot Results
@@ -69,7 +69,7 @@ def sampling_example_3d():
     values_per_dim = 10
 
     # Sample new Conditions
-    nc = max_distance_sampler(data, condition_space,
+    nc = max_min_distance_sampler(data, condition_space,
                               n_samples, values_per_dim)
 
     # Plot Results (3D)
